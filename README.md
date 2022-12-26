@@ -10,7 +10,15 @@
 
 ## Diagrama Entidade Relacionamento
 
+<details>
+  <summary>
+    <strong> Diagrama </strong>
+  </summary><br>
+
 ![Diagrama do banco de dados](back-end/diagramDB.png)
+
+</details>
+
 
 ---
 
