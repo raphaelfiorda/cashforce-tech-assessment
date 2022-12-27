@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "drop": "npx sequelize-cli db:drop",
     "prestart": "npx sequelize-cli db:create && npx sequelize-cli db:migrate",
+    "start": "node .",
     "seed": "npx sequelize-cli db:seed:all"
   },
   "keywords": [],

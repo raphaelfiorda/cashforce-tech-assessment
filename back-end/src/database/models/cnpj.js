@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     companyType: DataTypes.STRING,
   },
   {
-    tableName: 'cnpj',
+    tableName: 'cnpjs',
   });
 
   return Cnpj;

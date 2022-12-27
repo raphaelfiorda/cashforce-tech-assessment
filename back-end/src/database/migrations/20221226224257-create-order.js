@@ -3,85 +3,53 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('buyers', {
+    await queryInterface.createTable('orders', {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
-      name: {
+      orderNfId: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      tradingName: {
+      orderNumber: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      orderPath: {
         type: Sequelize.STRING,
         allowNull: true
       },
-      cashforceTax: {
+      orderFileName: {
         type: Sequelize.STRING,
         allowNull: true
       },
-      responsibleName: {
+      orderOriginalName: {
         type: Sequelize.STRING,
         allowNull: true
       },
-      responsibleEmail: {
+      emissionDate: {
         type: Sequelize.STRING,
         allowNull: true
       },
-      responsiblePosition: {
+      pdfFile: {
         type: Sequelize.STRING,
         allowNull: true
       },
-      responsiblePhone: {
+      emitedTo: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      nNf: {
         type: Sequelize.STRING,
         allowNull: true
       },
-      responsibleMobile: {
+      CTE: {
         type: Sequelize.STRING,
         allowNull: true
       },
-      website: {
-        type: Sequelize.STRING,
-        allowNull: true
-      },
-      postalCode: {
-        type: Sequelize.STRING,
-        allowNull: true
-      },
-      address: {
-        type: Sequelize.STRING,
-        allowNull: true
-      },
-      number: {
-        type: Sequelize.STRING,
-        allowNull: true
-      },
-      complement: {
-        type: Sequelize.STRING,
-        allowNull: true
-      },
-      neighborhood: {
-        type: Sequelize.STRING,
-        allowNull: true
-      },
-      city: {
-        type: Sequelize.STRING,
-        allowNull: true
-      },
-      state: {
-        type: Sequelize.STRING,
-        allowNull: true
-      },
-      phoneNumber: {
-        type: Sequelize.STRING,
-        allowNull: true
-      },
-      situation: {
-        type: Sequelize.STRING,
-        allowNull: true
-      },
-      situationDate: {
+      value: {
         type: Sequelize.STRING,
         allowNull: true
       },
@@ -93,19 +61,64 @@ module.exports = {
           key: 'id'
         }
       },
-      confirm: {
-        type: Sequelize.BOOLEAN,
+      userId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'users',
+          key: 'id'
+        }
+      },
+      buyerId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'buyers',
+          key: 'id'
+        }
+      },
+      providerId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'providers',
+          key: 'id'
+        }
+      },
+      orderStatusBuyer: {
+        type: Sequelize.STRING,
+        defaultValue: 0,
         allowNull: true
       },
-      email: {
+      orderStatusProvider: {
+        type: Sequelize.STRING,
+        defaultValue: 0,
+        allowNull: true
+      },
+      deliveryReceipt: {
         type: Sequelize.STRING,
         allowNull: true
       },
+      cargoPackingList: {
+        type: Sequelize.STRING,
+        allowNull: true
+      },
+      deliveryCtrc: {
+        type: Sequelize.STRING,
+        allowNull: true
+      },
+      createdAt: {
+        type: Sequelize.DATE,
+        allowNull: false
+      },
+      updatedAt: {
+        type: Sequelize.DATE,
+        allowNull: false
+      }
     });
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.dropTable('buyers');
+    await queryInterface.dropTable('orders');
   }
 };
-
