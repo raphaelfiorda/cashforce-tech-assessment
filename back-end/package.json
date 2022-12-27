@@ -4,11 +4,11 @@
   "description": "Back end directory",
   "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "drop": "npx sequelize-cli db:drop",
     "prestart": "npx sequelize-cli db:create && npx sequelize-cli db:migrate",
+    "seed": "npx sequelize-cli db:seed:all",
     "start": "node .",
-    "seed": "npx sequelize-cli db:seed:all"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "Raphael Fiorda Amaral",
