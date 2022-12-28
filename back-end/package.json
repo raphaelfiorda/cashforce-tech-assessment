@@ -8,7 +8,7 @@
     "prestart": "npx sequelize-cli db:create && npx sequelize-cli db:migrate",
     "seed": "npx sequelize-cli db:seed:all",
     "start": "node .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha src/tests/*.{test,spec}.js -t 10000 --exit"
   },
   "keywords": [],
   "author": "Raphael Fiorda Amaral",
@@ -21,8 +21,12 @@
     "sequelize": "^6.28.0"
   },
   "devDependencies": {
+    "chai": "^4.3.7",
+    "chai-http": "^4.3.0",
     "express-async-errors": "^3.1.1",
+    "mocha": "^10.2.0",
     "nodemon": "^2.0.20",
-    "sequelize-cli": "^6.5.2"
+    "sequelize-cli": "^6.5.2",
+    "sinon": "^15.0.1"
   }
 }
