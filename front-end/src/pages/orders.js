@@ -7,8 +7,10 @@ export default function OrdersPage() {
   return (
     <div className='flex'>
       <Sider />
-      <Header />
-      <Orders />
+      <div className='w-full'>
+        <Header />
+        <Orders />
+      </div>
     </div>
   );
 }

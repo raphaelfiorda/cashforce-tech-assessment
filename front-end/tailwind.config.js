@@ -4,7 +4,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "nimble-white": "#DBDBDB",
+        "nimble-white": "#f5f5f5",
+        "gray-darkish": "#727D94",
+        "dark-blue": "#021B51",
       }
     },
   },
