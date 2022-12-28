@@ -6,8 +6,9 @@ const userService = {
       notaFiscal: order.orderNumber,
       sacado: order.buyer.name,
       cedente: order.provider.name,
-      emissao: (order.emissionDate).substring(0, 9),
+      emissao: (order.emissionDate).substring(0, 10),
       valor: order.value,
+      status: order.status,
     }));
 
     return serializedOrders;
