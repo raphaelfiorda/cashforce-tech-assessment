@@ -18,10 +18,12 @@ export default function OrdersTable() {
   return (
       <table className='border-separate border-spacing-4 w-full'>
         <thead>
-          <tr className=''>
+          <tr className='font-bold text-xs text-gray'>
             {
               ['NOTA FISCAL', 'SACADO', 'CEDENTE', 'EMISSÃO', 'VALOR', 'STATUS', '']
-                .map((tableHead, id) => <th key={id} className='text-left py-4 pl-4'>{tableHead}</th>)
+                .map((tableHead, id) => (
+                <th key={id} className='text-left py-2 pl-2'>{tableHead}</th>)
+                )
             }
           </tr>
         </thead>
@@ -29,14 +31,14 @@ export default function OrdersTable() {
           {
             orders &&
               orders.map((order, id) => (
-                <tr key={id} className=''>
-                  <td className='py-4 pl-4'>{order.notaFiscal}</td>
-                  <td className='py-4 pl-4'>{order.cedente}</td>
-                  <td className='py-4 pl-4'>{order.sacado}</td>
-                  <td className='py-4 pl-4'>{order.emissao}</td>
-                  <td className='py-4 pl-4'>{order.valor}</td>
-                  <td className='py-4 pl-4'>status</td>
-                  <td className='py-4 text-right'>
+                <tr key={id} className='font-medium text-sm text-dark-gray'>
+                  <td className='py-2 pl-2'>{order.notaFiscal}</td>
+                  <td className='py-2 pl-2'>{order.sacado}</td>
+                  <td className='py-2 pl-2'>{order.cedente}</td>
+                  <td className='py-2 pl-2'>{order.emissao}</td>
+                  <td className='py-2 pl-2 text-main-green'>{order.valor}</td>
+                  <td className='font-bold py-2 pl-2 text-xs text-main-green'>RECEBIDO</td>
+                  <td className='font-bold py-2 text-xs text-right'>
                     <button>Dados do cedente</button>
                   </td>
                 </tr>
