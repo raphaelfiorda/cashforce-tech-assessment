@@ -20,9 +20,17 @@ describe('Testa a integração da rota /', () => {
         .get('/');
 
         const { status, body } = response;
-        console.log({ status, body });
         expect(status).to.equal(200);
         expect(JSON.stringify(body)).to.equal(JSON.stringify(responseMock));
+    });
+
+    it('Retorna status 500 em caso de erro genérico', async () => {
+      Sinon.stub(Order, 'findAll').resolves(null);
+      const response = await chai.request(app)
+        .get('/');
+
+        const { status } = response;
+        expect(status).to.equal(500);
     });
   });
 });
