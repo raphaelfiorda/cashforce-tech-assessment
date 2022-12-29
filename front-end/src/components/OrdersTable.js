@@ -19,36 +19,40 @@ export default function OrdersTable() {
   )
 
   return (
-      <table className='border-separate border-spacing-4 w-full'>
-          <tr className='font-bold text-xs text-gray'>
-            {
-              ['NOTA FISCAL', 'SACADO', 'CEDENTE', 'EMISSÃO', 'VALOR', 'STATUS', '']
-                .map((tableHead, id) => (
-                <th key={id} className='text-left p-2'>{tableHead}</th>)
-                )
-            }
-          </tr>
+    <ul className='flex-col space-y-4 w-full'>
+        <li className='flex justify-between font-bold pl-2 text-xs text-gray'>
           {
-            orders &&
-              orders.map((order, id) => (
-                <tr key={id} className='font-medium text-sm text-dark-gray'>
-                  <td className='p-2'>{order.notaFiscal}</td>
-                  <td className='p-2'>{order.sacado}</td>
-                  <td className='p-2'>{order.cedente}</td>
-                  <td className='p-2'>{dateParser(order.emissao)}</td>
-                  <td className='p-2 text-main-green'>
-                    {currencyFormatter({value: order.valor, currency: 'BRL'})}
-                  </td>
-                  <td className='font-bold p-2 text-xs text-main-green'>RECEBIDO</td>
-                  <td className='font-bold text-gray-darkish text-right text-xs'>
-                    <button className='border border-soft-blue rounded-3xl py-2 px-6'>
-                      Dados do cedente
-                    </button>
-                  </td>
-                </tr>
-              ))
+            ['NOTA FISCAL', 'SACADO', 'CEDENTE', 'EMISSÃO', 'VALOR', 'STATUS', '']
+              .map((tableHead, id) => (
+              <div key={id} className='basis-1/6 p-2'>{tableHead}</div>)
+              )
           }
+        </li>
+        {
+          orders &&
+            orders.map((order, id) => (
+              <li key={id}
+                className={'border border-nimble-gray flex justify-between' +
+                'font-medium p-2 rounded-md text-sm text-dark-gray'
+              }
+              >
+                <div className='basis-1/6 p-2'>{order.notaFiscal}</div>
+                <div className='basis-1/6 p-2'>{order.sacado}</div>
+                <div className='basis-1/6 p-2'>{order.cedente}</div>
+                <div className='basis-1/6 p-2'>{dateParser(order.emissao)}</div>
+                <div className='basis-1/6 p-2 text-main-green'>
+                  {currencyFormatter({value: order.valor, currency: 'BRL'})}
+                </div>
+                <div className='basis-1/6 font-bold p-2 text-xs text-main-green'>RECEBIDO</div>
+                <div className='basis-1/6 font-bold text-gray-darkish text-right text-xs'>
+                  <button className='border border-soft-blue rounded-3xl py-2 px-6'>
+                    Dados do cedente
+                  </button>
+                </div>
+              </li>
+            ))
+        }
 
-      </table>
+    </ul>
   )
 }

@@ -9,7 +9,9 @@ export default function Orders() {
           <img src='/Vector.png' className='self-center mr-2 w-6' alt='Imagem de mãos dadas' />
           <span className='font-bold text-2xl text-dark-blue'>Notas fiscais</span>
         </div>
-        <p className='text-gray-darkish text-sm'>Visualize as notas fiscais que você tem.</p>
+        <p className='mb-5 text-gray-darkish text-sm'>
+          Visualize as notas fiscais que você tem.
+        </p>
         <OrdersTable />
       </div>
     </div>

@@ -4,7 +4,7 @@ export default function Sider() {
   return (
     <aside className='h-screen bg-nimble-white'>
       <div className='w-72'>
-        <img src='/cashforce_logo.png' className='self-center' />
+        <img src='/cashforce_logo.png' className='self-center' alt='Logo da Cashforce' />
       </div>
       <div className='flex h-20 border-l-4 border-main-green pl-6 items-center'>
         <div className='font-medium text-main-green'>
