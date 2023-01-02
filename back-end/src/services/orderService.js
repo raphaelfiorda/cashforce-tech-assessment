@@ -8,7 +8,7 @@ const userService = {
       cedente: order.provider.name,
       emissao: (order.emissionDate).substring(0, 10),
       valor: order.value,
-      status: order.status,
+      status: order.orderStatusBuyer,
     }));
 
     return serializedOrders;

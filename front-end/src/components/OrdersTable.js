@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getOrders } from '../service/api';
 import utils from '../utils';
 
-const { dateParser, currencyFormatter } = utils;
+const { dateParser, currencyFormatter, getStatus } = utils;
 
 export default function OrdersTable() {
   const [orders, setOrders] = useState([]);
@@ -43,7 +43,9 @@ export default function OrdersTable() {
                 <div className='basis-1/6 p-2 text-main-green'>
                   {currencyFormatter({value: order.valor, currency: 'BRL'})}
                 </div>
-                <div className='basis-1/6 font-bold p-2 text-xs text-main-green'>RECEBIDO</div>
+                <div className='basis-1/6 font-bold p-2 text-xs text-main-green'>
+                  { getStatus(order.status) }
+                </div>
                 <div className='basis-1/6 font-bold text-gray-darkish text-right text-xs'>
                   <button className='border border-soft-blue rounded-3xl py-2 px-6'>
                     Dados do cedente

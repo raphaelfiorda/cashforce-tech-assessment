@@ -4,7 +4,7 @@ const chaiHttp = require('chai-http');
 const { Order } = require('../database/models');
 const { dbResponse, responseMock } = require('./orderMocks');
 
-const app = require('../api');
+const app = require('../app');
 
 chai.use(chaiHttp);
 
